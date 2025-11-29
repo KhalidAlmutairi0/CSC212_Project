@@ -188,4 +188,16 @@ public class AVLTree<T> {
 		System.out.println("Key: " + r.key + " Data: " + r.data);
 		inOrder(r.right);
 	}
+		public void traverse(Consumer<T> C) {
+	    traverseNode(root, C);
+	}
+
+	private void traverseNode(AVLNode<T> node, Consumer<T> C) {
+	    if (node != null) {
+	        traverseNode(node.left, C);
+	        C.accept(node.data); // تنفيذ العملية المطلوبة (طباعة، فحص، جمع)
+	        traverseNode(node.right, C);
+	    }
+	}
 }
+
